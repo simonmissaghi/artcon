@@ -1,0 +1,68 @@
+    html {
+        font-size: 62.5%;
+        @include antialiasing;
+
+        // @include media-breakpoint-down(xs) {
+        //     font-size: 50%;
+        // }
+    }
+
+    @font-face {
+        font-family: haas;
+        src: url("ctm-font/haas-55.otf") format("opentype");
+    }
+
+    body {
+        color: $color-txt;
+        font-family: "haas", sans-serif;
+        background: $color-bg;
+        max-width: 1440px;
+        margin: 0 auto;
+
+        @include media-breakpoint-up(md) {
+            overflow: hidden;
+        }
+    }
+
+    h1 {
+        font-family: $ff-title;
+        text-transform: uppercase;
+        font-size: 3.2rem;
+        margin: 0 0 2rem;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 4.2rem;
+        }
+    }
+
+    h2 {
+        font-family: $ff;
+        font-size: 2.4rem;
+        margin: 0 0 2rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        line-height: 1.6;
+        font-family: 'haas', sans-serif;
+
+    }
+
+    a {
+        color: $color-link;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-hover;
+        }
+    }
+
+    ul {
+        @include reset-ul;
+    }
+
+    *,
+    *:after,
+    *:before {
+        @include box-sizing(border-box);
+    }

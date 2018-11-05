@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <title>ArtContemporain</title>
+</head>
+<body>
+    <header id="header">
+        <p>Bienvenue Bienvenue Bienvenue Bienvenue</p>
+    </header>
+    <nav id="nav" class="nav">
+        <a href="#" class="close"></a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Search</a></li>
+            <li><a href="/">Add a new</a></li>
+            <li><a href="/">Download</a></li>
+            <li><a href="/">How to</a></li>
+        </ul>
+    </nav>
+    <main id="main" class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="imgwrapper">
+
+                    </div>
+                    <div class="infowrapper">
+                        <ul>
+                            <li>Artiste</li>
+                            <li>Nom de l'oeuvre</li>
+                            <li>Mouvement</li>
+                            <li>Année</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <footer>
+    </footer>
+    <script type="text/javascript" src="javascript/main.js"></script>
+    <script type="text/javascript" src="javascript/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+</body>
+</html>
