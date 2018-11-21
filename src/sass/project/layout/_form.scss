@@ -1,0 +1,45 @@
+form {
+    // @include calc(height, '100% - 4.5rem');
+
+
+    input {
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        text-transform: uppercase;
+        font-family: 'haas', sans-serif;
+        font-size: 2.6rem;
+
+
+        &[type="file"] {
+            display: none;
+        }
+
+        &[type="submit"] {
+            // color: $color-ctm;
+        }
+    }
+
+    &.form-login {
+        padding: 2rem;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        input {
+            margin-bottom: 2rem;
+
+            &.user,
+            &.pass {
+                border-bottom: 3px solid #000;
+            }
+        }
+    }
+
+    &.form-add {
+        @include calc(height, "100vh - 97px");
+    }
+}

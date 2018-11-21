@@ -1,4 +1,5 @@
 <?php include ('php/connexion.php');?>
+<?php include ('php/log.php');?>
 <?php include ('php/all_entries.php');?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,8 +31,8 @@
     <div class="login"><a href="login.php"><img src="images/locker.png" alt="login"></a></div>
 </nav>
 <main id="main">
-    <form class="form-login" action="php/log.php" method="POST">
-        <input type="text" class="user" name="user" placeholder="username">
+    <form class="form-login" action="" method="POST">
+        <input type="text" class="user" name="pseudo" placeholder="username">
         <input type="password" class="pass" name="pass" placeholder="password">
         <input type="submit" name="btn_submit--login">
     </form>

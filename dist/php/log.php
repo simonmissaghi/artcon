@@ -1,24 +1,28 @@
-<?php include ('connexion.php');?>
-
 <?php
+include ('connexion.php');
 $erreurco = "";
 
 if(!empty($_POST['btn_submit--login'])) {
-  $preparedStatement = $connection->prepare('SELECT id, pass FROM user WHERE user = :user');
-  $user =  strip_tags($_POST['user']);
+  $preparedStatement = $connection->prepare('SELECT id, pass FROM user WHERE pseudo = :pseudo');
+  $pseudo =  strip_tags($_POST['pseudo']);
   $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
   $preparedStatement->execute(array(
-    'user' => $user));
+    'pseudo' => $pseudo));
   $resultat = $preparedStatement->fetch();
 
   $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
 
+  // if (!$resultat)
+  // {
+
+  // // }
+  // else
   {
     if ($isPasswordCorrect) {
       session_start();
       $_SESSION['id'] = $resultat['id'];
-      $_SESSION['user'] = $user;
+      $_SESSION['pseudo'] = $pseudo;
 
       header('Location:../index.php');
       exit;

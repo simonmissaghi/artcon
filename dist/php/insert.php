@@ -14,39 +14,39 @@ elseif(strlen($_POST['mouvement']) < 3 ) {
 elseif(empty($_POST['annee'])) {
   $anneeErr = "Il faut rentrer une année";
 } else {
-
   $_FILES['img']['name'];
   $_FILES['img']['type'];
   $_FILES['img']['size'];
   $_FILES['img']['tmp_name'];
   $_FILES['img']['error'];
-
-
   $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
   $extension_upload = strtolower(  substr(  strrchr($_FILES['img']['name'], '.')  ,1)  );
-  if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+  // if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
   if(isset($_FILES['img'])){
-    $target_dir = 'uploads/';
+    $target_dir = 'images/uploads/';
     $uniqName = uniqid();
     $target_file = $target_dir . basename($uniqName. '.' .$extension_upload);
   }
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
   if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
+    $erreur = "Le fichier existe déjà";
     $uploadOk = 0;
   }
+
   if ($_FILES["img"]["size"] > 50000000) {
-    echo "Sorry, your file is too large.";
+    $erreur = "Votre image dépasse 2MB";
     $uploadOk = 0;
   }
 
-
-  if ($_FILES['img']['error'] > 0) $erreur = "Erreur lors du transfert";
+  if ($_FILES['img']['error'] > 0) {
+    $erreur = "Erreur lors du transfert";
+  }
 
   $resultat = move_uploaded_file($_FILES['img']['tmp_name'],$target_file);
-  if ($resultat) {echo "Transfert réussi";}else {
-    echo "erreur";
+  if ($resultat) {
+    $message = "Transfert réussi";
+  }else {
+    $erreur = "Il y a eu une erreur";
   }
   $preparedstatement = $connection->prepare('INSERT INTO oeuvre
     (
@@ -83,9 +83,7 @@ elseif(empty($_POST['annee'])) {
     'statut' => $statut,
     'img' => $img
   ));
-  header("Location: ../index.php");
-  exit();
+var_dump($_FILES);
 }
 }
-
 ?>

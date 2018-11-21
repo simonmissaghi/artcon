@@ -1,5 +1,6 @@
 <?php session_start();
-include("php/insert.php"); ?>
+include("php/insert.php");
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,26 +13,30 @@ include("php/insert.php"); ?>
   <title>ArtContemporain</title>
 </head>
 <body>
+    <div class="message">
+        <span class="danger"><?php if(isset($erreur)) { echo $erreur;} ?></span>
+        <span class="safe"><?php if(isset($message)) { echo $message;} ?></span>
+    </div>
     <header id="header" class="marque">
         <div data-text="Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu "></div>
     </header>
     <?php include('nav.php'); ?>
     <main id="main">
         <h2 class="title-page">Add a new</h2>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form class="form-add" action="" method="POST" enctype="multipart/form-data">
             <div class="imgwrapper btn_add-img">
                 <input type="hidden" name="MAX_FILE_SIZE" value="11054854" />
                 <input type="file" name="img" id="img" onchange="previewFile()"/>
-                <p class="text-img">"tap to insert an image"</p>
+                <p class="text-img"><?php if(isset($erreur)) { echo "$erreur";} else {echo "tap to insert an image";}?></p>
             </div>
             <div class="infowrapper infowrapper_page-add">
                 <ul>
-                    <li><input type="text" name="artiste" placeholder="Artiste"></li>
-                    <li><input type="text" name="oeuvre" placeholder="Nom de l'oeuvre"></li>
-                    <li><input type="text" name="mouvement" placeholder="Mouvement"></li>
-                    <li><input type="text" name="annee" placeholder="Année"></li>
+                    <li><input type="text" name="artiste" placeholder="<?php if(isset($errArtiste)) { echo "$errArtiste";} else {echo "Artiste";}?>"></li>
+                    <li><input type="text" name="oeuvre" placeholder="<?php if(isset($errOeuvre)) { echo "$errOeuvre";} else {echo "Nom de l'oeuvre";}?>"></li>
+                    <li><input type="text" name="mouvement" placeholder="<?php if(isset($errMove)) { echo "$errMove";} else {echo "Mouvement";}?>"></li>
+                    <li><input type="number" pattern="[0-9]*" name="annee" placeholder="<?php if(isset($errAnnee)) { echo "$errAnnee";} else {echo "Année";}?>"></li>
                     <li class="input-statut"><input type="hidden" name="statut" value="2"></li>
-                    <li><img src="images/arrow.svg" alt=""><input type="submit" name="insert"></li>
+                    <li class="validate-form"><img src="images/arrow.svg" alt=""><input type="submit" name="insert"></li>
                 </ul>
             </div>
         </form>

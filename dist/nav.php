@@ -12,7 +12,7 @@
             <li><a href="about.php">About</a></li>
         </ul>
         <div class="login">
-            <?php if(isset($_SESSION['user'])) {
+            <?php if(isset($_SESSION['pseudo'])) {
                 echo '<a href="./php/deconnexion.php"><img src="images/door-icon.png" alt="deconnexion"></a>';
             }else {
 

@@ -1,8 +1,8 @@
 <?php
-include ('php/all_entries.php');
+include ('php/select_pending.php');
 
 session_start();
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['pseudo'])) {
   header ('Location: index.php');
   exit();
 }
@@ -33,10 +33,10 @@ if (!isset($_SESSION['user'])) {
         </div>
         <div class="infowrapper infowrapper_page-front">
           <ul>
-            <li class=""><span  class="no-visible"><?php echo $result['artiste'] ?></span></li>
-            <li class=""><span  class="no-visible"><?php echo $result['oeuvre'] ?></span></li>
-            <li class=""><span  class="no-visible"><?php echo $result['mouvement'] ?></span></li>
-            <li class=""><span  class="no-visible"><?php echo $result['annee'] ?></span></li>
+            <li class=""><span><?php echo $result['artiste'] ?></span></li>
+            <li class=""><span><?php echo $result['oeuvre'] ?></span></li>
+            <li class=""><span><?php echo $result['mouvement'] ?></span></li>
+            <li class=""><span><?php echo $result['annee'] ?></span></li>
           </ul>
         </div>
       </div>

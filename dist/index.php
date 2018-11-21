@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php include ('php/connexion.php');?>
 <?php include ('php/all_entries.php');?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,31 +22,29 @@
     <title>ArtContemporain</title>
 </head>
 <body>
-<!--     <div class="use-on-mobile">
-        <img src="/" alt="only on mobile" />
-        <p>Please use your smartphone to enjoy this "app"</p>
-    </div> -->
     <header id="header" class="marque">
         <div data-text="Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu Menu "></div>
     </header>
-<?php include('nav.php'); ?>
-    <main id="main" class="swiper-container">
-        <div class="swiper-wrapper">
-            <?php foreach($results as $result): ?>
-                <div class="swiper-slide">
-                    <div class="imgwrapper notSelectable" style="background-image: url('php/<?php echo $result['img'] ?>')">
+    <?php include('nav.php'); ?>
+    <main id="main main-home">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php foreach($results as $result): ?>
+                    <div class="swiper-slide">
+                        <div class="imgwrapper notSelectable" style="background-image: url('<?php echo $result['img'] ?>')">
 
+                        </div>
+                        <div class="infowrapper infowrapper_page-front">
+                            <ul>
+                                <li class=""><span class="genericInfo">Artiste</span><span class="no-visible"><?php echo $result['artiste'] ?></span></li>
+                                <li class=""><span class="genericInfo">Oeuvre</span><span class="no-visible"><?php echo $result['oeuvre'] ?></span></li>
+                                <li class=""><span class="genericInfo">Mouvement</span><span class="no-visible"><?php echo $result['mouvement'] ?></span></li>
+                                <li class=""><span class="genericInfo">Année</span><span class="no-visible"><?php echo $result['annee'] ?></span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="infowrapper infowrapper_page-front">
-                        <ul>
-                            <li class=""><span class="genericInfo">Artiste</span><span class="no-visible"><?php echo $result['artiste'] ?></span></li>
-                            <li class=""><span class="genericInfo">Oeuvre</span><span class="no-visible"><?php echo $result['oeuvre'] ?></span></li>
-                            <li class=""><span class="genericInfo">Mouvement</span><span class="no-visible"><?php echo $result['mouvement'] ?></span></li>
-                            <li class=""><span class="genericInfo">Année</span><span class="no-visible"><?php echo $result['annee'] ?></span></li>
-                        </ul>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </main>
     <footer>

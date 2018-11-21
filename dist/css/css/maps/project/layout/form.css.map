@@ -1,0 +1,1 @@
+{"version":3,"sources":["form.css"],"names":[],"mappings":"AAAA,KAAK,WAAW,CAAC,QAAQ,UAAU,CAAC,WAAW,gBAAgB,YAAY,aAAa,UAAU,CAAC,wBAAwB,YAAY,CAAC","file":"../../../project/layout/form.css","sourcesContent":["form{height:100%}form li{height:20%}form input{background:none;border:none;outline:none;width:100%}form input[type=\"file\"]{display:none}\n"]}
